@@ -1,41 +1,50 @@
-import { useState } from "react";
-
-function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestemnt: 0,
-    annualInvestemnt: 0,
-    expectedReturn: 0,
-    duration: 0,
-  });
-
-  function handleInputChange() {
-    setUserInput((prevInput) => {
-      return {
-        ...prevInput,
-      };
-    });
-  }
-
+function UserInput({ userInput, onChange }) {
   return (
     <section id="user-input">
       <div className="input-group">
         <p>
           <label htmlFor="">INITIAL INVESTMENT</label>
-          <input type="number" required value={userInput.initialInvestemnt} />
+          <input
+            type="number"
+            required
+            value={userInput.initialInvestment}
+            onChange={(event) =>
+              onChange("initialInvestment", +event.target.value)
+            }
+          />
         </p>
         <p>
           <label htmlFor="">ANNUAL INVESTMENT</label>
-          <input type="number" required value={userInput.annualInvestemnt} />
+          <input
+            type="number"
+            required
+            value={userInput.annualInvestment}
+            onChange={(event) =>
+              onChange("annualInvestment", +event.target.value)
+            }
+          />
         </p>
       </div>
       <div className="input-group">
         <p>
           <label htmlFor="">Expected Return</label>
-          <input type="number" required value={userInput.expectedReturn} />
+          <input
+            type="number"
+            required
+            value={userInput.expectedReturn}
+            onChange={(event) =>
+              onChange("expectedReturn", +event.target.value)
+            }
+          />
         </p>
         <p>
           <label htmlFor="">Duration</label>
-          <input type="number" required value={userInput.duration} />
+          <input
+            type="number"
+            required
+            value={userInput.duration}
+            onChange={(event) => onChange("duration", +event.target.value)}
+          />
         </p>
       </div>
     </section>
