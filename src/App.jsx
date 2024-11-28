@@ -26,7 +26,6 @@ function App() {
       };
     });
   }
-  console.log(projectsState.tasks);
 
   function handleDeleteTask(id) {
     setProjectsState((prevState) => {
