@@ -30,7 +30,6 @@ function SelectedProject({
         <p className="mb-4 text-stone-400">{formattedDate}</p>
         <p className="text-stone-600 whitespace-pre-wrap">
           {project.description}
-          Decription
         </p>
       </header>
       <Tasks onTaskAdd={onTaskAdd} onTaskDelete={onTaskDelete} tasks={tasks} />
