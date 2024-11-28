@@ -22,10 +22,13 @@ function NewTask({ onAdd }) {
         type="text"
         className="w-64 px-2 py-1 rounded-sm bg-stone-200"
         onChange={handleChange}
+        value={enteredTask}
       />
       <button
         onClick={handleClick}
-        className="text-stone-700 hover:text-stone-950"
+        className={`text-stone-700 hover:text-stone-950 ${
+          !enteredTask.trim() && `text-red-600`
+        }`}
       >
         Add Task
       </button>

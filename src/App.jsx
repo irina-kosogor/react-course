@@ -1,4 +1,5 @@
-import { useState, useId } from "react";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
 import ProjectSidebar from "./components/ProjectSidebar";
@@ -11,15 +12,12 @@ function App() {
     tasks: [],
   });
 
-  const projectId = useId();
-  const taskId = useId();
-
   function handleAddTask(text) {
     setProjectsState((prevState) => {
       const newTask = {
         text: text,
         projectId: prevState.selectedProjectId,
-        id: taskId,
+        id: uuidv4(),
       };
 
       return {
@@ -28,6 +26,7 @@ function App() {
       };
     });
   }
+  console.log(projectsState.tasks);
 
   function handleDeleteTask(id) {
     setProjectsState((prevState) => {
@@ -81,7 +80,7 @@ function App() {
     setProjectsState((prevState) => {
       const newProject = {
         ...projectData,
-        id: projectId,
+        id: uuidv4(),
       };
 
       return {
